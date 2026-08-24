@@ -435,6 +435,42 @@ http://localhost:8081
 
 ---
 
-## 21. Author
+### Postman Collection
+
+The complete Postman collection is included in this repository for API testing.
+
+[Download Postman Collection](./Vendor-Order-Management.postman_collection.json)
+
+The collection contains requests for:
+
+- Vendor Management
+- Restaurant Management
+- Inventory Management
+- Order Management
+- Order Confirmation
+- Order Delivery
+- Order Cancellation
+- Top 5 Vegetables API
+- ---
+
+## 21. Key Features
+
+- RESTful API-based backend
+- Vendor and restaurant management
+- Daily inventory management
+- Multi-item restaurant orders
+- Automatic order amount calculation
+- Inventory availability validation
+- Automatic inventory deduction
+- Order lifecycle management
+- Order cancellation
+- Top 5 vegetables ordered in the last 30 days
+- Centralized exception handling
+- PostgreSQL database integration
+- JPA/Hibernate ORM
+- Postman API testing
+- ---
+
+## 22. Author
 
 Gaurav Shukla
