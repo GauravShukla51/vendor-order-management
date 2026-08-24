@@ -1,0 +1,151 @@
+{
+  "info": {
+    "name": "Vendor & Order Management MVP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "vendorId",
+      "value": "1"
+    },
+    {
+      "key": "orderId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Vendor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Fresh Farm Supplier\", \"email\": \"vendor@example.com\", \"phone\": \"9876543210\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/vendors"
+        }
+      }
+    },
+    {
+      "name": "List Vendors",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/vendors"
+        }
+      }
+    },
+    {
+      "name": "Deactivate Vendor",
+      "request": {
+        "method": "PATCH",
+        "url": {
+          "raw": "{{baseUrl}}/api/vendors/{{vendorId}}/active?active=false"
+        }
+      }
+    },
+    {
+      "name": "Add Inventory",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"vendorId\": 1, \"vegetableId\": 1, \"inventoryDate\": \"2026-08-21\", \"availableQuantity\": 100, \"unit\": \"KG\", \"pricePerUnit\": 40.0}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/inventory"
+        }
+      }
+    },
+    {
+      "name": "List Inventory",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/inventory"
+        }
+      }
+    },
+    {
+      "name": "Place Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"restaurantName\": \"Green Leaf Restaurant\", \"items\": [{\"vegetableId\": 1, \"quantity\": 10}]}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/orders"
+        }
+      }
+    },
+    {
+      "name": "Confirm Order",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/orders/{{orderId}}/confirm"
+        }
+      }
+    },
+    {
+      "name": "Out For Delivery",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/orders/{{orderId}}/status?status=OUT_FOR_DELIVERY"
+        }
+      }
+    },
+    {
+      "name": "Delivered",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/orders/{{orderId}}/status?status=DELIVERED"
+        }
+      }
+    },
+    {
+      "name": "Cancel Order",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/orders/{{orderId}}/cancel"
+        }
+      }
+    },
+    {
+      "name": "Top 5 Vegetables",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/orders/analytics/top-vegetables"
+        }
+      }
+    }
+  ]
+}
